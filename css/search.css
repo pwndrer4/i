@@ -1,0 +1,247 @@
+.search-wrapper {
+    top: 0;
+    right: 0;
+    z-index: 200;
+    position: fixed;
+}
+
+.search-wrapper .input-holder {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255,255,255,0);
+    border-radius: 6px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-wrapper.active .input-holder {
+    right: 40px;
+    width: 300px;
+    margin: 2.5px 0px;
+    background: #000;
+    border-radius: 50px;
+    -webkit-transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    -moz-transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    transition: all .5s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+}
+
+.search-wrapper .input-holder .search-input {
+    width: 100%;
+    height: 30px;
+    opacity: 0;
+    border: none;
+    outline: none;
+    position: absolute;
+    padding: 0px 60px 0 20px;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transform: translate(0, 60px);
+    -moz-transform: translate(0, 60px);
+    transform: translate(0, 60px);
+    -webkit-transition: all .3s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    -moz-transition: all .3s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    transition: all .3s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    -webkit-transition-delay: 0.3s;
+    -moz-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+}
+
+.search-wrapper.active .input-holder .search-input {
+    opacity: 1;
+    -webkit-transform: translate(0, 10px);
+    -moz-transform: translate(0, 10px);
+    transform: translate(0, 10px);
+}
+
+.search-wrapper .input-holder .search-icon {
+    width: 55px;
+    height: 55px;
+    border: none;
+    z-index: 2;
+    float: right;
+    padding: 0px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    background: #fff;
+    border-radius: 6px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-wrapper.active .input-holder .search-icon {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 30px;
+}
+
+.search-wrapper .input-holder .search-icon span {
+    width: 22px;
+    height: 22px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transition: all .8s cubic-bezier(0.650, -0.600, 0.240, 1.650);
+    -moz-transition: all .8s cubic-bezier(0.650, -0.600, 0.240, 1.650);
+    transition: all .8s cubic-bezier(0.650, -0.600, 0.240, 1.650);
+}
+
+.search-wrapper.active .input-holder .search-icon span {
+    -webkit-transform: rotate(315deg);
+    -moz-transform: rotate(315deg);
+    transform: rotate(315deg);
+}
+
+.search-wrapper .input-holder .search-icon span::before, .search-wrapper .input-holder .search-icon span::after {
+    position: absolute;
+    content: '';
+}
+
+.search-wrapper .input-holder .search-icon span::before {
+    top: 15px;
+    left: 11px;
+    width: 2px;
+    height: 10px;
+    background: #000;
+    border-radius: 2px;
+}
+
+.search-wrapper .input-holder .search-icon span::after {
+    top: 2px;
+    left: 4px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+
+.search-wrapper .close {
+    position: absolute;
+    z-index: 1;
+    top: -26px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    -webkit-transition: all .3s cubic-bezier(0.285, -0.450, 0.935, 0.110);
+    -moz-transition: all .3s cubic-bezier(0.285, -0.450, 0.935, 0.110);
+    transition: all .3s cubic-bezier(0.285, -0.450, 0.935, 0.110);
+    -webkit-transition-delay: 0.2s;
+    -moz-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+.search-wrapper.active .close {
+    top: 15px;
+    right: 10px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transition: all .4s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    -moz-transition: all .4s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    transition: all .4s cubic-bezier(0.000, 0.105, 0.035, 1.570);
+    -webkit-transition-delay: 0.5s;
+    -moz-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+}
+
+.search-wrapper .close::before, .search-wrapper .close::after {
+    content: '';
+    position: absolute;
+    background: #000;
+    border-radius: 2px;
+}
+
+.search-wrapper .close::before {
+    top: 0px;
+    left: 11px;
+    width: 2px;
+    height: 25px;
+}
+
+.search-wrapper .close::after {
+    top: 12px;
+    left: 0px;
+    width: 25px;
+    height: 2px;
+}
+
+@media screen and (max-width: 767px) {
+    .search-wrapper.active .input-holder {
+        right: 40px;
+        width: 220px;
+        background: #fff;
+        margin: 2.4px 0px;
+        border-radius: 50px;
+    }
+
+    .search-wrapper .input-holder .search-input {
+        height: 25px;
+        color: #000;
+        font-size: 14px;
+    }
+
+    .search-wrapper .input-holder .search-icon {
+        width: 50px;
+        height: 50px;
+        background: #000;
+    }
+
+    .search-wrapper.active .input-holder .search-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .search-wrapper .input-holder .search-icon span {
+        width: 24px;
+        height: 24px;
+    }
+
+    .search-wrapper .input-holder .search-icon span::before {
+        top: 15px;
+        background: #fff;
+    }
+
+    .search-wrapper .input-holder .search-icon span::after {
+        top: 1px;
+        border: 2px solid #fff;
+    }
+
+    .search-wrapper .close {
+        top: -25px;
+    }
+
+    .search-wrapper.active .close {
+        top: 12px;
+    }
+
+    .search-wrapper .close::before {
+        top: 2.5px;
+        left: 12px;
+        height: 20px;
+    }
+
+    .search-wrapper .close::after {
+        left: 3px;
+        width: 20px;
+    }
+
+    .search-wrapper .close::before, .search-wrapper .close::after {
+        background: #fff;
+    }
+}
