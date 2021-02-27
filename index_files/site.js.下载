@@ -1,0 +1,169 @@
+﻿(function() {
+  // 导航栏
+  document.addEventListener("DOMContentLoaded", function() {
+    // Get all "navbar-burger" elements
+    var $navbarBurgers = Array.prototype.slice.call(
+      document.querySelectorAll(".navbar-burger"),
+      0
+    );
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+      // Add a click event on each of them
+      $navbarBurgers.forEach(function($el) {
+        $el.addEventListener("click", function() {
+          // Get the target from the "data-target" attribute
+          var target = $el.dataset.target;
+          var $target = document.getElementById(target);
+          // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+          $el.classList.toggle("is-active");
+          $target.classList.toggle("is-active");
+        });
+      });
+    }
+  });
+
+  // 打赏模态框
+  window.showTipModal = function() {
+    document.getElementById("tipModal").classList.add("is-active");
+  };
+
+  window.closeTipModal = function() {
+    document.getElementById("tipModal").classList.remove("is-active");
+  };
+
+  window.payFinished = function(ok) {
+    closeTipModal();
+    if (ok) {
+      _showSuccess("感谢您的支持~");
+    }
+  };
+
+  $("#tipModal .payway .button").click(function() {
+    $(this)
+      .addClass("is-info is-selected")
+      .siblings()
+      .removeClass("is-info is-selected");
+
+    var index = $(this).index();
+    $("#tipModal .qrcode img")
+      .eq(index)
+      .removeClass("is-hidden")
+      .siblings()
+      .addClass("is-hidden");
+  });
+
+  /*
+function showTipModal() {
+    $('#tipModal').addClass('is-active');
+}
+function closeModal() {
+    $('#tipModal').removeClass('is-active');
+}
+ */
+
+  /**
+   * HTML表单转json字符串
+   * @param formName 表单名称（可选），不指定时获取第一个表单数据
+   */
+  window._formJson = function(formName) {
+    const form = formName ? document.forms[formName] : document.forms[0];
+    const formObj = {};
+    const elements = form.querySelectorAll("[name]");
+    for (let i = 0; i < elements.length; i++) {
+      const element = elements[i];
+      formObj[element.name] = element.value;
+    }
+    return JSON.stringify(formObj);
+  };
+
+  /**
+   * 重置表单
+   * @param formName 表单名称（可选），不指定时清空第一个表单
+   */
+  window._formReset = function(formName) {
+    const form = formName ? document.forms[formName] : document.forms[0];
+    form.reset();
+  };
+
+  window._ajax = function(settings) {
+    if (!settings) {
+      console.error("参数settings不能为空");
+      return;
+    }
+
+    const method = (settings.method || "GET").toUpperCase();
+    const contentType =
+      settings.contentType ||
+      (method === "GET"
+        ? "application/x-www-form-urlencoded"
+        : "application/json");
+    const url = settings.url || "";
+    let data = settings.data || {};
+    if (method == "POST" && typeof data == "object") {
+      data = JSON.stringify(data);
+    }
+
+    const successFn = settings.success || function() {};
+    const errorFn = settings.error || function() {};
+    const completeFn = settings.complete || function() {};
+
+    let loadingId = 0;
+
+    $.ajax({
+      url: url,
+      type: method,
+      contentType: contentType,
+      data: data,
+      beforeSend: function() {
+        loadingId = layer.load();
+      },
+      complete: function(resp) {
+        layer.close(loadingId);
+        completeFn(resp);
+      },
+      success: function(res) {
+        if (res.code == 0) {
+          successFn(res);
+        } else {
+          errorFn(res.msg);
+        }
+      },
+      error: function(err) {
+        _showError(err.toString());
+        errorFn(err.toString());
+      }
+    });
+  };
+
+  /**
+   * 成功提示
+   * @param msg 提示信息
+   */
+  window._showSuccess = function(msg) {
+    layer.msg(msg, {
+      icon: 1,
+      time: 3000
+    });
+  };
+
+  /**
+   * 错误提示
+   * @param msg 提示信息
+   */
+  window._showError = function(msg) {
+    layer.msg(msg, {
+      icon: 1,
+      time: 3000
+    });
+  };
+
+  /**
+   * 普通提示
+   * @param msg 提示信息
+   */
+  window._showMsg = function(msg) {
+    layer.msg(msg, {
+      time: 3000
+    });
+  };
+})();

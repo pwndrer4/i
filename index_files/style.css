@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+*:focus {
+  outline: none;
+}
+.navbar .nav-special-shadow {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(transparent));
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), transparent);
+  height: 8px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+  -webkit-transform-origin: center top;
+  transform-origin: center top;
+}
+.navbar .navbar-item.is-hoverable:hover .navbar-dropdown {
+  display: block;
+}
+.navbar .tip {
+  position: absolute;
+  top: 10px;
+  right: 52px;
+  display: inline-block;
+}
+@media screen and (min-width: 1024px) {
+  .navbar .tip {
+    right: 0;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .hero {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+#tipModal .modal-content {
+  max-height: 100%;
+}
+#tipModal .title {
+  text-align: center;
+}
+#tipModal .title h3 {
+  font-size: 24px;
+}
+@media screen and (min-width: 768px) {
+  #tipModal .title h3 {
+    font-size: 36px;
+  }
+}
+#tipModal .payway .button {
+  width: 120px;
+}
+@media screen and (min-width: 768px) {
+  #tipModal .payway .button {
+    width: 200px;
+    height: 2.5rem;
+  }
+}
+#tipModal .qrcode {
+  margin-top: 15px;
+}
+#tipModal .qrcode img {
+  width: 200px;
+}
+@media screen and (min-width: 768px) {
+  #tipModal .qrcode img {
+    width: 360px;
+  }
+}
+#tipModal .finish {
+  text-align: right;
+}
+#tipModal .finish button:first-child {
+  margin-right: 10px;
+}
+footer {
+  background-color: #f6f9fc;
+  padding: 20px;
+}
+.main {
+  margin: 20px 0;
+}
+@media screen and (max-width: 1024px) {
+  .main {
+    padding: 0 10px;
+  }
+}
+.main-top0 {
+  margin-top: -20px;
+}
+.page-recommend-list {
+  margin-top: 30px;
+}
+.page-recommend-list .tool-item {
+  display: block;
+  height: 100%;
+  padding: 30px 20px 30px 90px;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  font-size: 24px;
+  position: relative;
+  background-color: #fafafa;
+}
+.page-recommend-list .tool-item:hover {
+  background-color: #f0f0f0;
+}
+.page-recommend-list .tool-item i {
+  position: absolute;
+  font-size: 36px;
+  font-weight: bold;
+  left: 30px;
+}
+.page-recommend-list .tool-item h2 {
+  color: #363636;
+  font-size: inherit;
+  font-weight: 600;
+}
+.page-recommend-list .tool-item p {
+  color: #7a7a7a;
+  font-size: 18px;
+  font-weight: 400;
+}
+.page-app-search .search-bar .search-btn {
+  min-width: 120px;
+}
+.page-app-search .app-list {
+  margin-top: 30px;
+}
+.page-app-search .app-list ul li {
+  position: relative;
+  height: 100px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+.page-app-search .app-list ul li:hover {
+  background-color: #eeeeee;
+}
+.page-app-search .app-list ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.page-app-search .app-list ul li a {
+  display: block;
+  height: 100%;
+}
+.page-app-search .app-list ul li .icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  margin-top: -25px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+.page-app-search .app-list ul li .version {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 15px;
+  background-color: #2d8cf0;
+  padding: 0 10px;
+  color: #fff;
+  font-size: 14px;
+}
+.page-app-search .app-list ul li .app-info {
+  margin-left: 70px;
+  height: 100%;
+  overflow: hidden;
+}
+.page-app-search .app-list ul li .app-info .app-name {
+  font-weight: bold;
+  color: #333;
+  padding-top: 20px;
+  font-size: 14px;
+  padding-right: 80px;
+}
+.page-app-search .app-list ul li .app-info .author-name {
+  color: #999;
+  padding-top: 10px;
+  font-size: 12px;
+}
+.page-app-history .table-list {
+  margin-top: 30px;
+}
+.page-app-history .table-list table {
+  table-layout: fixed;
+}
+.page-app-history .table-list .table-version tr {
+  font-size: 14px;
+}
+.page-app-history .table-list .table-version tr .date {
+  vertical-align: inherit;
+}
+.page-app-history .table-list .table-version tr .expand-flag {
+  color: #999;
+}
+.page-app-history pre.description {
+  margin: 0;
+  padding: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: transparent;
+  font-size: 14px;
+  min-width: 280px;
+  font-family: inherit;
+}
